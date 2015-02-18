@@ -17,9 +17,8 @@
 
     .container-fluid
       #main{role:'main'}
-        .container
-          .row
-            =render 'layouts/messages'
-            =yield
+        .row
+          =render 'layouts/messages'
+          =yield
 
-          %footer
+        %footer
