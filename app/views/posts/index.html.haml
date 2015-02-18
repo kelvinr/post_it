@@ -1,3 +1,22 @@
-%h3 Welcome!
+.container
+  .col-md-12
+    %h2 Posts
 
-%p This is the Postit template. Index action.
+.container
+  %hr
+  -@posts.each do |post|
+    .row
+      .col-md-6
+        .well
+          -post.categories.each do |category|
+            %span.badge= category.name
+          %h4= post.title
+          %h5= post.description
+          %p
+            %span.quiet posted by:
+            =post.creator.name.capitalize
+            %small
+              = precede "at " do
+                =post.created_at
+              %br
+              =link_to("#{post.comments.size} comments", post_path(post))

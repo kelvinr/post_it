@@ -15,10 +15,11 @@
       .container
         =render 'layouts/navigation'
 
-    #main{role:'main'}
-      .container
-        .row
-          =render 'layouts/messages'
-          =yield
+    .container-fluid
+      #main{role:'main'}
+        .container
+          .row
+            =render 'layouts/messages'
+            =yield
 
-        %footer
+          %footer
