@@ -8,8 +8,8 @@
         %h4= post.title
         %h5= post.description
         %p
-          %span.quiet posted by:
-          =post.creator.name.capitalize
+          / %span.quiet posted by:
+          / =post.creator.name.capitalize
           %small
             =surround " | Posted ", " ago" do
               =time_ago_in_words(post.created_at)
