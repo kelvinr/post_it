@@ -1,22 +1,18 @@
-.container
-  .col-md-12
-    %h2 Posts
+=render 'shared/content_title', title: "Posts"
 
-.container
-  %hr
-  -@posts.each do |post|
-    .row
-      .col-md-8
-        .well
-          -post.categories.each do |category|
-            %span.badge= category.name
-          %h4= post.title
-          %h5= post.description
-          %p
-            %span.quiet posted by:
-            =post.creator.name.capitalize
-            %small
-              = precede "at " do
-                =post.created_at
-              %br
-              =link_to("#{post.comments.size} comments", post_path(post))
+-@posts.each do |post|
+  .row
+    .col-md-8
+      .well
+        =render post.categories
+        %h4= post.title
+        %h5= post.description
+        %p
+          %span.quiet posted by:
+          =post.creator.name.capitalize
+          %small
+            =surround " | Posted ", " ago" do
+              =time_ago_in_words(post.created_at)
+            %br
+            =link_to("#{post.comments.size} comments", post_path(post))
+
