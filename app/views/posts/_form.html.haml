@@ -1,19 +1,22 @@
--if @post.errors.any?
-  .alert.alert-danger
-    %h5 There were some errors:
-    %ul
-      -@post.errors.full_messages.each do |msg|
-        %li= msg
+.container.text-center
+  -if @post.errors.any?
+    .alert.alert-danger
+      %h5 Please check the form
+      %ul
+        -@post.errors.full_messages.each do |msg|
+          %li= msg
 
-=form_for @post do |f|
-  =f.label :title
-  =f.text_field :title
+  .col-md-12
+    .well
+      =form_for @post do |f|
+        =f.label :title
+        =f.text_field :title, class: 'form-control'
 
-  =f.label :url
-  =f.text_field :url
+        =f.label :url
+        =f.text_field :url, class: 'form-control'
 
-  =f.label :description
-  =f.text_area :description
+        =f.label :description
+        =f.text_area :description, class: 'form-control', rows: 6
 
-  =f.submit "Create", class: "btn btn-primary"
+        =f.submit "Submit", class: "btn btn-primary btn-lg"
 
