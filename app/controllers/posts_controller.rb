@@ -33,7 +33,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Your post was updated."
       redirect_to posts_path
     else
-      render 'edit'
+      render :edit
     end
   end
 
