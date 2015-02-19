@@ -1,4 +1,8 @@
-%ul.nav.navbar-nav
-  .navbar-header
-    %li= link_to "Postit", root_path, class:'navbar-brand'
-  %li= link_to "New post", new_post_path
+%nav.navbar-default
+  .container-fluid
+    %ul.nav.navbar-nav
+      .navbar-header
+        %li= link_to "Postit", root_path, class:'navbar-brand'
+      %li= link_to "link", '#'
+    .btn.btn-success.navbar-btn.btn-sm.col-md-offset-1
+      = link_to "New post", new_post_path
