@@ -1,14 +1,8 @@
-.container#error_message
-  -if @post.errors.any?
-    .alert.alert-danger
-      %h5 Please check the form
-      %ul
-        -@post.errors.full_messages.each do |msg|
-          %li= msg
-
+.container.text-center
   .col-md-12
     .well
       =form_for @post do |f|
+        =render 'shared/error_msg', object: f.object
         =f.label :title
         =f.text_field :title, class: 'form-control'
 
@@ -18,5 +12,5 @@
         =f.label :description
         =f.text_area :description, class: 'form-control', rows: 6
 
-        =f.submit "Submit", class: "btn btn-primary btn-lg"
+        =f.submit @post.new_record? ? 'Create post' : 'Update post', class: "btn btn-primary btn-lg"
 

@@ -1,0 +1,9 @@
+#error_message
+  -if object.errors.any?
+    .alert.alert-danger
+      %h5
+        =precede "The form contains " do
+          =pluralize(object.errors.count, "error")
+      %ul
+        -object.errors.full_messages.each do |msg|
+          %li= msg
