@@ -3,5 +3,8 @@
     .well
       =form_for @category do |f|
         =render 'shared/error_msg', object: f.object
+
         =f.label :name
         =f.text_field :name, class: 'form-control'
+
+        =f.submit "Create", class: 'btn btn-success btn-lg'

@@ -3,6 +3,7 @@
     .well
       =form_for @post do |f|
         =render 'shared/error_msg', object: f.object
+        
         =f.label :title
         =f.text_field :title, class: 'form-control'
 
