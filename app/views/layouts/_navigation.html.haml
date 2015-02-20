@@ -1,10 +1,20 @@
-%nav.navbar-default
+%nav.navbar.navbar-default
   .container-fluid
-    %ul.nav.navbar-nav
-      .navbar-header
+    .navbar-header
+      %ul.nav.navbar-nav
         %li= link_to "Postit", root_path, class:'navbar-brand'
-      %li= link_to "link", '#'
-    .btn.btn-info.navbar-btn.btn-sm.col-md-offset-1
-      = link_to "New Category", new_category_path
+        %li= link_to "link", '#'
+    .btn-group.col-md-offset-1
+      .btn.btn-info.btn-sm.dropdown-toggle{type: 'button', 'data-toggle' => 'dropdown'}
+        Categories
+        %span.caret
+      %ul.dropdown-menu{role:'menu'}
+        -Category.all.each do |category|
+          %li= link_to category.name, category_path(category)
+          %li.divider
+        %li
+          =link_to(new_category_path) do
+            %i.glyphicon.glyphicon-plus
+            New Category
     .btn.btn-success.navbar-btn.btn-sm.col-md-offset-1
       = link_to "New post", new_post_path

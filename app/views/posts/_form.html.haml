@@ -1,8 +1,8 @@
 .container.text-center
+  =render 'shared/error_msg', object: @post
   .col-md-12
     .well
       =form_for @post do |f|
-        =render 'shared/error_msg', object: f.object
         
         =f.label :title
         =f.text_field :title, class: 'form-control'

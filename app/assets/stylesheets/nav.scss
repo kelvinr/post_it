@@ -36,7 +36,7 @@ $dropDown       : true;
     > .open {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
-        background-color: $bgHighlight; }}}
+        background-color: $bgHighlight;}}}
   .navbar-toggle {
     border-color: $bgHighlight;
     &:hover, &:focus {
@@ -50,7 +50,7 @@ $dropDown       : true;
     color: $colDefault;
     &:hover {
       color: $colHighlight; }}}
-.navbar-btn {
+.navbar-btn, .badge {
   > a {
   text-decoration: none;
   color: $colDefault;
@@ -58,6 +58,17 @@ $dropDown       : true;
     color: $colHighlight;
   }
 }}
+.btn-group {
+  @if $dropDown {
+    > .dropdown-menu {
+      background-color: $bgDefault;
+      > li > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}
+      .divider {
+        background-color: $bgHighlight;}}}}
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu {
     > li > a {

@@ -1,0 +1,13 @@
+.row
+  .col-md-8
+    .well
+      =render post.categories
+      %h4= post.title
+      %h5= post.description
+      %p
+        %small
+          =surround " | Posted ", " ago" do
+            =time_ago_in_words(post.created_at)
+          %br
+          =link_to pluralize("#{post.comments.size}", "comment"), post_path(post)
+          =link_to " | Edit Post", edit_post_path(post)

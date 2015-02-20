@@ -9,10 +9,10 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new
+    @category = Category.new(category_params)
 
-    if @category.save(category_params)
-      flash[:notice] = "Your category has been created."
+    if @category.save
+      flash[:success] = "Your category has been created."
       redirect_to root_path
     else
       render :new
@@ -21,8 +21,7 @@ class CategoriesController < ApplicationController
 
   private
 
-    def category_params
-      params.require(:category).permit(:name)
-    end
-
+  def category_params
+    params.require(:category).permit(:name)
+  end
 end
