@@ -3,15 +3,18 @@
   .col-md-12
     .well
       =form_for @post do |f|
-        
-        =f.label :title
-        =f.text_field :title, class: 'form-control'
-
-        =f.label :url
-        =f.text_field :url, class: 'form-control'
-
-        =f.label :description
-        =f.text_area :description, class: 'form-control', rows: 6
+        .form-group
+          =f.label :title
+          =f.text_field :title, class: 'form-control'
+        .form-group
+          =f.label :url
+          =f.text_field :url, class: 'form-control'
+        .form-group
+          =f.label :description
+          =f.text_area :description, class: 'form-control', rows: 6
+        .form-group
+          =f.label "Categories"
+          =f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb|
+            -cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text}
 
         =f.submit @post.new_record? ? 'Create post' : 'Update post', class: "btn btn-primary btn-lg"
-
