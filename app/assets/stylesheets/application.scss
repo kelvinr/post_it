@@ -8,6 +8,10 @@ hr {
  background: rgba(96,137,180,.25);
 }
 
+.quiet {
+  color: #ababab;
+}
+
 .form-control {
  width: 75%;
  max-width: 75%;
@@ -17,6 +21,10 @@ hr {
 .btn-lg {
  margin-top: .6em;
  width: 30%;
+}
+
+.cmt {
+  margin-top: .6em;
 }
 
 .field_with_errors {

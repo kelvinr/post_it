@@ -1,5 +1,18 @@
 -provide(:title, @post.title)
-=render @post.categories
-=render 'shared/content_title', title: @post.title
+.container
+  .col-md-12
+    .well
+      =render @post.categories
+      =render 'shared/content_title', title: @post.title
+      %p= @post.description
 
-%p= @post.description
+.container.text-center
+  =render 'shared/error_msg', object: @comment
+  .col-md-4
+    .well
+      =render 'comments/comment_form'
+  .col-md-8
+    =render @post.comments
+
+
+

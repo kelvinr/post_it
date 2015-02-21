@@ -1,0 +1,5 @@
+=form_for [@post, @comment] do |f|
+  =f.label :body, "Leave a Comment"
+  =f.text_area :body, class: 'form-control'
+
+  =f.submit "Comment", class: 'btn btn-primary cmt'

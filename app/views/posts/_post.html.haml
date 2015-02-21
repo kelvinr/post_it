@@ -6,7 +6,7 @@
       %h5= post.description
       %p
         %small
-          =surround " | Posted ", " ago" do
+          =surround "#{post.creator.name} | Posted ", " ago" do
             =time_ago_in_words(post.created_at)
           %br
           =link_to pluralize("#{post.comments.size}", "comment"), post_path(post)
