@@ -1,10 +1,9 @@
 -provide(:title, @post.title)
-.container
-  .col-md-12
-    .well
-      =render @post.categories
-      =render 'shared/content_title', title: @post.title
-      %p= @post.description
+.col-md-12
+  .well
+    =render @post.categories
+    =render 'shared/content_title', title: @post.title
+    %p= @post.description
 
 .container.text-center
   =render 'shared/error_msg', object: @comment

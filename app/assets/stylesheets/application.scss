@@ -30,14 +30,25 @@ hr {
 .field_with_errors {
  @extend .has-error;
    .form-control {
-     color: $state-danger-text;
-   }
+     color: $state-danger-text;}
 }
 
 #error_message {
  li {
-   list-style: none;
- }
+   list-style: none;}
+}
+
+.btn-info {
+  background: #267198;
+  border-color: #267198;
+    &:hover {
+      background: #429FBE;
+    }
+}
+
+.btn-success {
+  background: #327430;
+  border-color: #387B3D;
 }
 
 .scrollable-menu {

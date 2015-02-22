@@ -3,7 +3,6 @@
     .navbar-header
       %ul.nav.navbar-nav
         %li= link_to "Postit", root_path, class:'navbar-brand'
-        %li= link_to "link", '#'
     .btn-group.col-md-offset-1
       .btn.btn-info.btn-sm.dropdown-toggle{type: 'button', 'data-toggle' => 'dropdown'}
         Categories
@@ -16,5 +15,4 @@
         %li.divider
         -Category.all.each do |category|
           %li= link_to category.name, category_path(category)
-    .btn.btn-success.navbar-btn.btn-sm.col-md-offset-1
-      = link_to "New post", new_post_path
+    =link_to "Create new post", new_post_path, class: 'btn btn-success navbar-btn btn-sm col-md-offset-1'

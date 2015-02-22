@@ -50,14 +50,13 @@ $dropDown       : true;
     color: $colDefault;
     &:hover {
       color: $colHighlight; }}}
-.navbar-btn, .badge {
-  > a {
+.navbar-btn, .btn-info, .badge > a {
   text-decoration: none;
   color: $colDefault;
   &:hover, &:focus {
     color: $colHighlight;
   }
-}}
+}
 .btn-group {
   @if $dropDown {
     > .dropdown-menu {
