@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def page_title(title = '')
     base_title = 'PostiT'
-    title.empty? ? base_title : "#{title} | #{base_title}"
+    title.empty? ? base_title : strip_tags("#{title} | #{base_title}").sub(/All posts »/, "")
   end
 
   def fix_url(url)
@@ -10,6 +10,6 @@ module ApplicationHelper
   end
 
   def display_time(time)
-    time_ago_in_words(time) unless time.nil?
+    time_ago_in_words(time)
   end
 end

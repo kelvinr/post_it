@@ -1,3 +1,4 @@
+=render 'shared/content_title', title: 'Login'
 .container.text-center
   .col-md-6.col-md-offset-3
     .well
@@ -12,4 +13,6 @@
           =password_field_tag :password, nil, class: 'form-control'
 
         =submit_tag 'Login', class: 'btn btn-success'
+      %br
+      =link_to "New user? Register now!", register_path
 

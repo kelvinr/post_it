@@ -1,6 +1,4 @@
 -header =link_to("All posts", posts_path) + " &raquo; #{@category.name}".html_safe
-
--provide(:title, @category.name)
 =render 'shared/content_title', title: header
 
 -@category.posts.each do |post|
