@@ -1,6 +1,9 @@
-.col-md-8.col-md-offset-2
-  .well
-    %p= comment.body 
-    %span.quiet
-      =surround "#{comment.creator.name} | ", " ago" do
-        =display_time(comment.created_at)
+.container
+  .col-md-12
+    .col-md-8.col-md-offset-2
+      .well
+        %p= comment.body 
+        %span.quiet
+          =surround "#{comment.creator.name} | ", " ago" do
+            =display_time(comment.created_at)
+    

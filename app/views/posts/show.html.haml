@@ -5,14 +5,11 @@
     =render 'shared/content_title', title: @post.title
     %p= @post.description
 
-.container.text-center
-  =render 'shared/error_msg', object: @comment
-  .col-md-4
-    .well
-      =render 'comments/comment_form'
-  .col-md-8
-    %h4 Comments
-    =render @post.comments
+-if logged_in?
+  =render 'comments/comment_form'
+
+%h4.text-center Comments
+=render @post.comments
 
 
 
