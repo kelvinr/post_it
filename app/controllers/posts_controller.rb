@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   end
 
   def correct_user
-    if current_user != @user
+    if current_user != @post.creator
       flash[:error] = "You're not allowed to do that."
       redirect_to root_path
     end

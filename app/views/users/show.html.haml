@@ -9,7 +9,7 @@
     %h4
       =@user.name
       's activity
-    %ul.nav.nav-tabs{role: 'tablist'}
+    %ul.nav.nav-tabs
       %li{:class => "#{'active' if params[:tab].nil?}"}
         =link_to "Posts (#{@user.posts.size})", user_path(@user)
       %li{:class => "#{'active' if params[:tab] == 'comments'}"}

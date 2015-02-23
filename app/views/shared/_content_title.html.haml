@@ -1,3 +1,12 @@
--provide(:title, title)
-%h3= title
+-show_url ||= false
+-if show_url
+  -provide(:title, title.title)
+  =link_to(fix_url(title.url)) do
+    %h3
+      =title.title
+      %i.glyphicon.glyphicon-new-window
+-else
+  -provide(:title, title)
+  %h3= title
 %hr
+    

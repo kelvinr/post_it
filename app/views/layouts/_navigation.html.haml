@@ -12,12 +12,12 @@
       %ul.dropdown-menu.scrollable-menu{role:'menu'}
         -if logged_in?
           %li
-            = link_to(new_category_path) do
+            =link_to(new_category_path) do
               %i.glyphicon.glyphicon-plus
               New Category
           %li.divider
-          -Category.all.each do |category|
-            %li= link_to category.name, category_path(category)
+        -Category.all.each do |category|
+          %li= link_to category.name, category_path(category)
    
     -if logged_in?
       =link_to "Create new post", new_post_path, class: 'btn btn-success navbar-btn btn-sm col-md-offset-1'

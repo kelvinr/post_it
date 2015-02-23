@@ -1,7 +1,7 @@
 .col-md-12
   .well
     =render @post.categories
-    =render 'shared/content_title', title:"<a href='#{fix_url(@post.url)}'>#{@post.title} <i class='glyphicon glyphicon-new-window'></i></a>".html_safe
+    =render 'shared/content_title', title: @post, show_url: true
     %p= @post.description
     .pull-right
       -if @post.creator == current_user

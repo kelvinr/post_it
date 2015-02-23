@@ -1,0 +1,6 @@
+%span.quiet
+  =link_to(user_path(obj.creator)) do
+    ="#{obj.creator.name} "
+  | Posted
+  =display_time(obj.created_at)
+  ago

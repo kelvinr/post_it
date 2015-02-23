@@ -8,12 +8,9 @@
           %i.glyphicon.glyphicon-new-window
       %h5= post.description
       %p
-        %small.quiet
-          =link_to(user_path(post.creator)) do
-            =surround "#{post.creator.name} | Posted ", " ago" do
-              =display_time(post.created_at)
-          %br
-          =link_to pluralize("#{post.comments.size}", "comment"), post_path(post)
-          
-          -if post.creator == current_user
-            =link_to " | Edit Post", edit_post_path(post)
+        =render 'shared/user_link', obj: post
+        
+      =link_to pluralize("#{post.comments.size}", "comment"), post_path(post)
+      
+      -if post.creator == current_user
+        =link_to " | Edit Post", edit_post_path(post)

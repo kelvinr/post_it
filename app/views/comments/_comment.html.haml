@@ -1,5 +1,5 @@
 -show_post ||= false
--if comment.persisted?
+-if comment.valid?
   .container
     .col-md-8
       .well
@@ -8,10 +8,7 @@
           -if show_post
             &raquo;
             =link_to comment.post.title, post_path(comment.post)
-        %span.quiet
-          =link_to(user_path(comment.creator)) do
-            =surround "#{comment.creator.name} | ", " ago" do
-              =display_time(comment.created_at)
+        =render 'shared/user_link', obj: comment
 
 
 
