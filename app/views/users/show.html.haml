@@ -18,4 +18,4 @@
     -if params[:tab].nil?
       =render @user.posts
     -elsif params[:tab] == 'comments'
-      =render @user.comments
+      =render @user.comments, show_post: true

@@ -1,11 +1,18 @@
+-show_post ||= false
 -if comment.persisted?
   .container
     .col-md-8
       .well
-        %p= comment.body
+        %p
+          =comment.body
+          -if show_post
+            &raquo;
+            =link_to comment.post.title, post_path(comment.post)
         %span.quiet
-          =surround "#{comment.creator.name} | ", " ago" do
-            =display_time(comment.created_at)
+          =link_to(user_path(comment.creator)) do
+            =surround "#{comment.creator.name} | ", " ago" do
+              =display_time(comment.created_at)
+
 
 
     

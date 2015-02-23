@@ -2,7 +2,10 @@
   .col-md-8
     .well
       =render post.categories
-      %p.title= link_to post.title, fix_url(post.url)
+      %h4
+        =link_to(fix_url(post.url)) do
+          =post.title
+          %i.glyphicon.glyphicon-new-window
       %h5= post.description
       %p
         %small.quiet
@@ -11,4 +14,6 @@
               =display_time(post.created_at)
           %br
           =link_to pluralize("#{post.comments.size}", "comment"), post_path(post)
-          =link_to " | Edit Post", edit_post_path(post)
+          
+          -if post.creator == current_user
+            =link_to " | Edit Post", edit_post_path(post)

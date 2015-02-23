@@ -1,18 +1,18 @@
-=render 'shared/content_title', title: 'Login'
-.container.text-center
-  .col-md-6.col-md-offset-3
-    .well
-      %h4 Log in
-      =form_tag '/login' do
-        .form-group
-          =label_tag :name
-          =text_field_tag :name, nil, class: 'form-control'
+.text-center
+  =render 'shared/content_title', title: 'Login'
+  .container
+    .col-md-6.col-md-offset-3
+      .well
+        =form_tag '/login' do
+          .form-group
+            =label_tag :name
+            =text_field_tag :name, nil, class: 'form-control'
 
-        .form-group
-          =label_tag :password
-          =password_field_tag :password, nil, class: 'form-control'
+          .form-group
+            =label_tag :password
+            =password_field_tag :password, nil, class: 'form-control'
 
-        =submit_tag 'Login', class: 'btn btn-success'
-      %br
-      =link_to "New user? Register now!", register_path
+          =submit_tag 'Login', class: 'btn btn-success'
+        %br
+        =link_to "New user? Register now!", register_path
 

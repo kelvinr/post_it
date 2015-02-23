@@ -17,4 +17,4 @@
           =f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb|
             -cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text}
 
-        =f.submit @post.new_record? ? 'Create post' : 'Update post', class: "btn btn-primary btn-lg"
+        =f.submit @post.new_record? ? 'Create post' : 'Update post', class: "btn btn-primary"

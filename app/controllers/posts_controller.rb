@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
   before_action :require_user, except: [:show, :index]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @posts = Post.all
@@ -45,5 +46,12 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def correct_user
+    if current_user != @user
+      flash[:error] = "You're not allowed to do that."
+      redirect_to root_path
+    end
   end
 end

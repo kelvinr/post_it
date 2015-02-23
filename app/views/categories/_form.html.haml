@@ -1,10 +1,12 @@
-=render 'shared/error_msg', object: @category
 .container.text-center
+  =render 'shared/content_title', title: 'Create category'
+  =render 'shared/error_msg', object: @category
   .col-md-6.col-md-offset-3
     .well
       =form_for @category do |f|
 
-        =f.label :name
-        =f.text_field :name, class: 'form-control'
+        .form-group
+          =f.label :name
+          =f.text_field :name, class: 'form-control'
 
-        =f.submit "Create", class: 'btn btn-success btn-lg'
+        =f.submit "Create", class: 'btn btn-success'

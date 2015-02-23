@@ -1,0 +1,19 @@
+=render 'shared/error_msg', object: @user
+.container.text-center
+  .col-md-6.col-md-offset-3
+    .well
+      =form_for @user do |f|
+        .form-group
+          =f.label :name
+          =f.text_field :name, class: 'form-control'
+
+        .form-group
+          =f.label :password
+          =f.password_field :password, class: 'form-control'
+
+        -if @user.new_record?
+          .form-group
+            =f.label :password_confirmation
+            =f.password_field :password_confirmation, class: 'form-control'
+
+        =f.submit @user.new_record? ? "Create account" : "Update profile", class: 'btn btn-success'
