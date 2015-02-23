@@ -2,12 +2,13 @@
   .col-md-8
     .well
       =render post.categories
-      %h4= link_to post.title, fix_url(post.url)
+      %p.title= link_to post.title, fix_url(post.url)
       %h5= post.description
       %p
         %small.quiet
-          =surround "#{post.creator.name} | Posted ", " ago" do
-            =display_time(post.created_at)
+          =link_to(user_path(post.creator)) do
+            =surround "#{post.creator.name} | Posted ", " ago" do
+              =display_time(post.created_at)
           %br
           =link_to pluralize("#{post.comments.size}", "comment"), post_path(post)
           =link_to " | Edit Post", edit_post_path(post)

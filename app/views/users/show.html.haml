@@ -1,0 +1,21 @@
+.container
+  .col-md-12
+    =render 'shared/content_title', title: "Profile: #{@user.name.capitalize}"
+    .well
+      %h4
+        %strong Username:
+        =@user.name
+
+    %h4
+      =@user.name
+      's activity
+    %ul.nav.nav-tabs{role: 'tablist'}
+      %li{:class => "#{'active' if params[:tab].nil?}"}
+        =link_to "Posts (#{@user.posts.size})", user_path(@user)
+      %li{:class => "#{'active' if params[:tab] == 'comments'}"}
+        =link_to "Comments (#{@user.comments.size})", user_path(@user, tab: 'comments')
+
+    -if params[:tab].nil?
+      =render @user.posts
+    -elsif params[:tab] == 'comments'
+      =render @user.comments

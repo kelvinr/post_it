@@ -7,8 +7,10 @@
 -if logged_in?
   =render 'comments/comment_form'
 
-%h4.text-center Comments
-=render @post.comments
+.container
+  %h4.text-center Comments
+  .col-md-8.col-md-offset-2
+    =render @post.comments
 
 
 

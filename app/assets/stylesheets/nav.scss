@@ -62,7 +62,14 @@ $dropDown       : true;
   background: #591DE6 !important;
   border-color: #4D2198; 
     &:hover {
-      background: #4400FF;}
+      background: #4400FF !important;}
+}
+
+.btn-danger {
+  background: #861E1E !important;
+  border-color: #6D1A1A;
+    &:hover {
+      background: #581F1F !important;}
 }
 
 .btn-group {
