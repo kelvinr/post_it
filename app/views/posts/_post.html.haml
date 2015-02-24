@@ -1,6 +1,7 @@
-.row
-  .col-md-8
-    .well
+.row.vertical
+  =render 'shared/vote', obj: post, url: vote_post_path(post)
+  .col-md-11
+    .well.well-sm
       =render post.categories
       %h4
         =link_to(fix_url(post.url)) do
@@ -14,3 +15,6 @@
       
       -if post.creator == current_user
         =link_to " | Edit Post", edit_post_path(post)
+
+
+

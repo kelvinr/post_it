@@ -1,19 +1,25 @@
-.col-md-12
-  .well
-    =render @post.categories
-    =render 'shared/content_title', title: @post, show_url: true
-    %p= @post.description
-    .pull-right
-      -if @post.creator == current_user
-        =link_to "Edit post", edit_post_path(@post)
+.container
+  .row.vertical
+    =render 'shared/vote', obj: @post, url: vote_post_path
+
+    .col-md-11
+      .well.well-sm
+        =render @post.categories
+        =render 'shared/content_title', title: @post, show_url: true
+        %p= @post.description
+        =render 'shared/user_link', obj: @post
+        .pull-right
+          -if @post.creator == current_user
+            =link_to "Edit post", edit_post_path
 
 -if logged_in?
   =render 'comments/comment_form'
 
-.container
-  %h4.text-center Comments
-  .col-md-8.col-md-offset-2
-    =render @post.comments
+-if @post.comments.any?
+  .container
+    %h4.text-center Comments
+    .col-12
+      =render @post.comments.sort_by{|votes| votes.value}.reverse
 
 
 

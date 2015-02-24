@@ -1,7 +1,8 @@
 -show_post ||= false
 -if comment.valid?
-  .container
-    .col-md-8
+  .row.vertical
+    =render 'shared/vote', obj: comment, url: vote_post_comment_path(comment.post, comment)
+    .col-md-11
       .well
         %p
           =comment.body

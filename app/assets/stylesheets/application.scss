@@ -10,8 +10,17 @@ hr {
  background: rgba(96,137,180,.25);
 }
 
-.title {
-  font-size: 1.55em;
+.glyphicon-arrow-up, .glyphicon-arrow-down {
+  display: block;
+}
+
+.vote {
+  margin-right: -1.7em;
+}
+
+.vertical {
+  display: flex;
+  align-items: center;
 }
 
 a {
