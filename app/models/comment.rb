@@ -6,11 +6,7 @@ class Comment < ActiveRecord::Base
   validates :body, presence: true
 
   def counter(params)
-    if params == 'true'
-      self.increment!(:vote_count)
-    else
-      self.decrement!(:vote_count)
-    end
+    params == 'true' ? self.increment!(:vote_count) : self.decrement!(:vote_count)
   end
 
   def check_vote(user)

@@ -21,7 +21,7 @@
    
     -if logged_in?
       =link_to "Create new post", new_post_path, class: 'btn btn-success navbar-btn btn-sm col-md-offset-1'
-      .btn-group.navbar-btn.pull-right
+      .btn-group.navbar-btn.pull-right#user
         .btn.btn-danger.btn-sm.dropdown-toggle{type: 'button', 'data-toggle' => 'dropdown'}
           =current_user.name
           %span.caret
