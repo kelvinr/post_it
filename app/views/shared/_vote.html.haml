@@ -1,8 +1,11 @@
 .col-md-1.text-center
   .well.vote
-    =link_to "#{url}?vote=true", method: :post do
-      %i.glyphicon.glyphicon-arrow-up
-    =obj.value
-    =link_to "#{url}?vote=false", method: :post do 
-      %i.glyphicon.glyphicon-arrow-down
+    -if logged_in?
+      =link_to "#{url}?vote=true", method: :post do
+        %i.glyphicon.glyphicon-arrow-up
+      %strong=obj.vote_count
+      =link_to "#{url}?vote=false", method: :post do 
+        %i.glyphicon.glyphicon-arrow-down
+    -else
+      %strong=obj.vote_count
 

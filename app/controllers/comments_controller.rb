@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @comment.creator = current_user
 
     if @comment.save
+      @comment.votes << Vote.create(vote: true, creator: current_user)
       flash[:success] = "Your comment was added."
       redirect_to post_path(@post)
     else
@@ -15,9 +16,10 @@ class CommentsController < ApplicationController
   end
 
   def vote
-    @comment = @post.comments.find(params[:id])
-    Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
-    flash[:success] = 'Your vote was recorded'
+    comment = @post.comments.find(params[:id])
+    v = Vote.new(voteable: comment, creator: current_user, vote: params[:vote])
+    comment.check_vote(current_user).nil? ? v.save : comment.change_vote(params[:vote])
+    comment.counter(params[:vote]) if v.persisted?
     redirect_to :back
   end
 

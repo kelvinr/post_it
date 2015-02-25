@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @posts = Post.all.sort_by{|post| post.value}.reverse
+    @posts = Post.all.sort_by{|votes| votes.vote_count}.reverse
   end
 
   def show
@@ -20,6 +20,7 @@ class PostsController < ApplicationController
     @post.creator = current_user
 
     if @post.save
+      @post.votes << Vote.create(vote: true, creator: current_user)
       flash[:success] = "Your post has been created."
       redirect_to posts_path
     else
@@ -38,9 +39,10 @@ class PostsController < ApplicationController
     end
   end
 
-  def vote
-    Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-    flash[:success] = 'Your vote was counted'
+  def vote   
+    v = Vote.new(voteable: @post, creator: current_user, vote: params[:vote])
+    @post.check_vote(current_user).nil? ? v.save : @post.change_vote(params[:vote])
+    @post.counter(params[:vote]) if v.persisted?
     redirect_to :back
   end
 

@@ -5,15 +5,20 @@ class Comment < ActiveRecord::Base
 
   validates :body, presence: true
 
-  def value
-    up_votes - down_votes
+  def counter(params)
+    if params == 'true'
+      self.increment!(:vote_count)
+    else
+      self.decrement!(:vote_count)
+    end
   end
 
-  def up_votes
-    self.votes.where(vote: true).size
+  def check_vote(user)
+    @current_vote ||= self.votes.find_by(creator: user)
   end
 
-  def down_votes
-    self.votes.where(vote: false).size
+  def change_vote(params)
+    self.counter(params) if @current_vote.vote.to_s != params
+    @current_vote.update(vote: params)
   end
 end

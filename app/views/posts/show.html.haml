@@ -19,7 +19,7 @@
   .container
     %h4.text-center Comments
     .col-12
-      =render @post.comments.sort_by{|votes| votes.value}.reverse
+      =render @post.comments.sort_by{|votes| votes.vote_count}.reverse
 
 
 
