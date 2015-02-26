@@ -10,7 +10,7 @@
         =render 'shared/user_link', obj: @post
         .pull-right
           -if @post.creator == current_user
-            =link_to "Edit post", edit_post_path
+            =link_to "Edit post", edit_post_path(@post)
 
 -if logged_in?
   =render 'comments/comment_form'
