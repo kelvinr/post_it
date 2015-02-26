@@ -17,6 +17,7 @@ PostitTemplate::Application.routes.draw do
     end
   end
   
+  get '/posts/:id/comments' => 'posts#show'
 
   resources :categories, only: [:new, :create, :show]
   resources :users, except: :destroy
