@@ -1,6 +1,6 @@
 .container
   .row.vertical
-    =render 'shared/vote', obj: @post, url: vote_post_path
+    =render 'shared/vote', obj: @post, url: vote_post_path(@post)
 
     .col-md-11
       .well.well-sm
