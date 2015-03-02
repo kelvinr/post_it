@@ -6,6 +6,10 @@ PostitTemplate::Application.routes.draw do
   post '/login'    => 'sessions#create'
   get '/logout'    => 'sessions#destroy'
 
+  # Handle html response for voting
+  get '/posts/:id/vote' => 'posts#vote'
+  get '/posts/:post_id/comments/:id/vote' => 'comments#vote'
+
   resources :posts, except: :destroy do
     member do 
       post 'vote'
@@ -18,5 +22,5 @@ PostitTemplate::Application.routes.draw do
   end
 
   resources :categories, only: [:new, :create, :show]
-  resources :users, except: :destroy
+  resources :users, only: [:show, :create, :edit, :update]
 end

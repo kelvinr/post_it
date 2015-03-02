@@ -18,7 +18,7 @@
 -if @post.comments.any?
   .container
     %h4.text-center Comments
-    .col-12
+    .col-12#com
       =render @post.comments.sort_by{|votes| votes.vote_count}.reverse
 
 

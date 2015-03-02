@@ -6,24 +6,29 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.creator = current_user
+    @comment.votes << Vote.create(vote: true, creator: current_user) if @comment.save
 
-    if @comment.save
-      @comment.votes << Vote.create(vote: true, creator: current_user)
-      flash[:success] = "Your comment was added."
-      redirect_to post_path(@post)
-    else
-      render 'posts/show'
+    respond_to do |format|
+      format.html do
+        if @comment.save
+          flash[:success] = "Your comment has been added."
+          redirect_to post_path(@post)
+        else
+          render 'posts/show'
+        end
+      end
+      format.js
     end
   end
 
   def vote
     @comment = Comment.find(params[:id])
-    v = Vote.new(voteable: @comment, creator: current_user, vote: params[:vote])
-    @comment.check_vote(current_user).nil? ? v.save : @comment.change_vote(params[:vote])
-    @comment.counter(params[:vote]) if v.persisted?
+    vote = Vote.new(voteable: @comment, creator: current_user, vote: params[:vote])
+    @comment.check_vote(current_user).nil? ? vote.save : @comment.change_vote(params[:vote])
+    @comment.counter(params[:vote]) if vote.persisted?
 
     respond_to do |format|
-      format.html
+      format.html{redirect_to post_path(@comment.post)}
       format.js
     end
   end

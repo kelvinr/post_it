@@ -1,11 +1,11 @@
 .col-md-1.text-center
   .well.vote
     -if logged_in?
-      =link_to "#{url}?vote=true", id:'upvote', method: :post, remote: true do
-        %i.glyphicon.glyphicon-arrow-up#up
+      =link_to "#{url}?vote=true", method: :post, remote: true do
+        %i.glyphicon.glyphicon-arrow-up
       %strong{id: "#{obj.class}_#{obj.id}"}=obj.vote_count
-      =link_to "#{url}?vote=false",id:'downvote', method: :post, remote: true do 
-        %i.glyphicon.glyphicon-arrow-down#down
+      =link_to "#{url}?vote=false", method: :post, remote: true do
+        %i.glyphicon.glyphicon-arrow-down
     -else
       %strong{id: "#{obj.class}_#{obj.id}"}=obj.vote_count
 

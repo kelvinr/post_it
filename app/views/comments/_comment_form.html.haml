@@ -1,10 +1,10 @@
 =render 'shared/error_msg', object: @comment
-.col-md-12.text-center
+.col-md-12.text-center#cmt_form
   .well
-    =form_for [@post, @comment] do |f|
+    =form_for [@post, @comment], remote: true, authenticity_token: true do |f|
       .form-group
         =f.label :body, "Leave a Comment"
         =f.text_area :body, class: 'form-control'
 
-      =f.submit "Comment", class: 'btn btn-primary cmt'
+      =f.submit "Comment", class: 'btn btn-primary'
 

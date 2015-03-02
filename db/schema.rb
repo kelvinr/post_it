@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150225102849) do
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,17 +36,17 @@ ActiveRecord::Schema.define(version: 20150225102849) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "url",         limit: 255
-    t.string   "description", limit: 255
+    t.string   "title"
+    t.string   "url"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "vote_count",              default: 1
+    t.integer  "vote_count",  default: 1
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",            limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"

@@ -1,6 +1,6 @@
-.container#error_message
-  .col-md-12.text-center
-    -if object.errors.any?
+-if object.errors.any?
+  .container#error_message
+    .col-md-12.text-center
       .alert.alert-danger
         %h5
           =precede "The form contains " do

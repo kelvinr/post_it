@@ -39,13 +39,13 @@ class PostsController < ApplicationController
     end
   end
 
-  def vote   
-    v = Vote.new(voteable: @post, creator: current_user, vote: params[:vote])
-    @post.check_vote(current_user).nil? ? v.save : @post.change_vote(params[:vote])
-    @post.counter(params[:vote]) if v.persisted?
-
+  def vote
+    vote = Vote.new(voteable: @post, creator: current_user, vote: params[:vote])
+    @post.check_vote(current_user).nil? ? vote.save : @post.change_vote(params[:vote])
+    @post.counter(params[:vote]) if vote.persisted?
+    
     respond_to do |format|
-      format.html
+      format.html {redirect_to :back}
       format.js
     end
   end
