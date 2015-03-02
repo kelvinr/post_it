@@ -11,8 +11,38 @@
 // about supported directives.
 //
 //= require jquery
-//= require custom
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
+//= require turbolinks
 //= require_tree .
+
+var form;
+form = function() {
+  $('.remote').on('click', function(event){
+    if ($(this).hasClass("vis")){
+    event.stopPropagation();
+    event.preventDefault();
+    $(this).next(".form").slideToggle();
+  }
+    $(this).addClass("vis");
+  });
+}
+$(document).ready(form);
+$(document).on('page:load', form);
+
+
+var category;
+category = function() {
+  $(".cat").on('click', function(event){
+    if ($(this).hasClass("vis")){
+      event.stopPropagation();
+      event.preventDefault();
+      $("#newcat").slideToggle();
+    }
+    $(this).closest('.btn-group').removeClass('open');
+    $(this).closest('.btn-info').attr('aria-expanded', 'false');
+    $(this).addClass("vis");
+  });
+}
+$(document).ready(category);
+$(document).on('page:load', category);

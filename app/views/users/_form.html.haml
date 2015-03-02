@@ -1,19 +1,21 @@
-.col-md-4.col-md-offset-4.text-center#signupform
+.container#signup.form
   =render 'shared/error_msg', object: @user
-  .well
-    =form_for @user do |f|
-      .form-group
-        =f.label :name
-        =f.text_field :name, class: 'form-control'
-
-      .form-group
-        =f.label :password
-        =f.password_field :password, class: 'form-control'
-
-      -if @user.new_record?
+  .col-md-4.col-md-offset-4.text-center
+    .well
+      %h4 Register
+      =form_for @user, authenticity_token: true do |f|
         .form-group
-          =f.label :password_confirmation
-          =f.password_field :password_confirmation, class: 'form-control'
+          =f.label :name
+          =f.text_field :name, class: 'form-control'
 
-      =f.submit @user.new_record? ? "Create account" : "Update profile", class: 'btn btn-success'
+        .form-group
+          =f.label :password
+          =f.password_field :password, class: 'form-control'
+
+        -if @user.new_record?
+          .form-group
+            =f.label :password_confirmation
+            =f.password_field :password_confirmation, class: 'form-control'
+
+        =f.submit @user.new_record? ? "Create account" : "Update profile", class: 'btn btn-success'
 

@@ -7,6 +7,10 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    respond_to do |format|
+      format.html{redirect_to new_category_path}
+      format.js
+    end
   end
 
   def create
