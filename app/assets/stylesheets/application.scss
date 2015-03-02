@@ -10,6 +10,11 @@ hr {
  background: rgba(96,137,180,.25);
 }
 
+#signupform {
+  position: absolute;
+  z-index: 1;
+}
+
 .glyphicon-arrow-up, .glyphicon-arrow-down {
   display: block;
 }

@@ -40,7 +40,8 @@
               %i.glyphicon.glyphicon-log-out
               Logout
     -else
-      =link_to "Register", register_path, class: 'btn btn-warning btn-sm navbar-btn col-md-offset-1'
+      =link_to "Register", register_path, remote: true, class: 'btn btn-warning btn-sm navbar-btn col-md-offset-1'
+      %span#signup
       =link_to "Login", login_path, class: 'btn btn-success btn-sm navbar-btn col-md-offset-1'
     
 

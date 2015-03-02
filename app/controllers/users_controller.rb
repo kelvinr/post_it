@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    respond_to do |format|
+      format.html{redirect_to register_path}
+      format.js
+    end
   end
 
   def create
