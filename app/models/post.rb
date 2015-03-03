@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   validates :url, presence: true, uniqueness: true
   validates :description, presence: true, length: {minimum: 10}
 
-  before_save :generate_slug
+  before_save :generate_slug, on: :create
 
   def counter(params)
     params == 'true' ? self.increment!(:vote_count) : self.decrement!(:vote_count)
@@ -25,7 +25,19 @@ class Post < ActiveRecord::Base
   end
 
   def generate_slug
-    self.slug = self.title.gsub(' ', '-').downcase
+    the_slug = to_slug(self.title)
+    post = Post.find_by slug: the_slug
+    if post && post != self
+      post = Post.order(:created_at).last
+      the_slug << "-#{post.slug[/\d+$/].to_i + 1}"
+    end
+    self.slug = the_slug
+  end
+
+  def to_slug(name)
+    str = name.strip.gsub! /\s*[^A-Za-z0-9]\s*/, '-'
+    str.gsub! /-+/, '-'
+    str.downcase
   end
 
   def to_param
