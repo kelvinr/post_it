@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   include Voteable
+  include Sluggable
 
   belongs_to :creator, foreign_key: 'user_id', class_name: 'User'
   has_many :comments
@@ -10,25 +11,5 @@ class Post < ActiveRecord::Base
   validates :url, presence: true, uniqueness: true
   validates :description, presence: true, length: {minimum: 10}
 
-  before_save :generate_slug, on: :create
-
-  def generate_slug
-    the_slug = to_slug(self.title)
-    post = Post.find_by slug: the_slug
-    if post && post != self
-      post = Post.order(:created_at).last
-      the_slug << "-#{post.slug[/\d+$/].to_i + 1}"
-    end
-    self.slug = the_slug
-  end
-
-  def to_slug(name)
-    str = name.strip.gsub! /\s*[^A-Za-z0-9]\s*/, '-'
-    str.gsub! /-+/, '-'
-    str.downcase
-  end
-
-  def to_param
-    self.slug
-  end
+  sluggable_column :title
 end
