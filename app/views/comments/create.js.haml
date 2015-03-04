@@ -2,5 +2,8 @@
   $('#com').prepend("#{escape_javascript(render @comment)}")
   $('#com .row:first-child').css('border', '3px solid #FFFEAD')
   $("#comment_body").val('')
+  -if @comment.post.comments.first == @comment
+    $("#first").removeClass('hide')
+    $('#none').addClass('hide')
 -else
   $("#cmt_form").replaceWith("#{escape_javascript(render 'comments/comment_form')}")

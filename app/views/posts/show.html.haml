@@ -15,11 +15,11 @@
 -if logged_in?
   =render 'comments/comment_form'
 
--if @post.comments.any?
-  .container
-    %h4.text-center Comments
-    .col-12#com
-      =render @post.comments.sort_by{|votes| votes.vote_count}.reverse
+%h4#none No Comments
+%h4#first.hide Comments
+.container
+  .col-12#com
+    =render @post.comments.sort_by{|votes| votes.vote_count}.reverse
 
 
 

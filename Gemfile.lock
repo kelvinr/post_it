@@ -153,6 +153,7 @@ GEM
     uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    voteable_kelvin (0.0.0)
 
 PLATFORMS
   ruby
@@ -174,3 +175,4 @@ DEPENDENCIES
   sqlite3
   turbolinks
   uglifier (>= 1.3.0)
+  voteable_kelvin

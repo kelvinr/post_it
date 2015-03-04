@@ -15,6 +15,14 @@ hr {
   z-index: 1;
 }
 
+#first, #none {
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
 .glyphicon-arrow-up, .glyphicon-arrow-down {
   display: block;
 }
