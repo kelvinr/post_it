@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'haml', '~> 4.0.6'
 gem 'bcrypt'
 gem 'voteable_kelvin'
+gem 'sluggable_kel'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
