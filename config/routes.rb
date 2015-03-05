@@ -5,6 +5,8 @@ PostitTemplate::Application.routes.draw do
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'
   get '/logout'    => 'sessions#destroy'
+  get '/pin'       => 'sessions#pin'
+  post '/pin'      => 'sessions#pin'
 
   # Handle html response for voting
   get '/posts/:id/vote' => 'posts#vote'

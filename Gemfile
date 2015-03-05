@@ -9,6 +9,7 @@ gem 'haml', '~> 4.0.6'
 gem 'bcrypt'
 gem 'voteable_kelvin'
 gem 'sluggable_kel'
+gem 'twilio-ruby'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

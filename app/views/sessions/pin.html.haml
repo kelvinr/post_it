@@ -1,0 +1,11 @@
+=render 'shared/content_title', title: 'Enter Pin to Log In'
+.col-md-6.col-md-offset-3
+  .well.text-center
+    %p
+      Your account is locked. You will receieve a text message with a pin number.
+      Enter the pin number to unlock your account and proceed with login.
+      =form_tag '/pin' do 
+        .form-group
+          =label_tag :pin, "Pin Number"
+          =text_field_tag :pin, params[:pin] || '', class: 'form-control'
+        =submit_tag "Unlock your account", class: 'btn btn-success'

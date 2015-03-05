@@ -10,6 +10,19 @@ hr {
  background: rgba(96,137,180,.25);
 }
 
+.dark_well {
+   background-color: rgba(245, 245, 245, 0.85);
+   border-radius: 1em;
+   width: 150px;
+   border: solid 1px #BCDBDB;
+   box-shadow: 0 0 .5em .5em #FFFFFF inset;
+}
+
+p.dark_well {
+  display: none;
+  position: absolute;
+}
+
 .form {
   position: absolute;
   z-index: 1;

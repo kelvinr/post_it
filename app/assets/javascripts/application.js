@@ -18,13 +18,16 @@
 
 var form;
 form = function() {
-  $('.remote').on('click', function(event){
+  $('.remote').click(function(event){
     if ($(this).hasClass("vis")){
-    event.stopPropagation();
-    event.preventDefault();
-    $(this).next(".form").slideToggle();
-  }
+      event.stopPropagation();
+      event.preventDefault();
+      $(this).next(".form").slideToggle();
+    }
     $(this).addClass("vis");
+    });
+  $('.container-fluid').on('click', 'i', function(){
+    $('.dark_well').slideToggle();
   });
 }
 $(document).ready(form);
