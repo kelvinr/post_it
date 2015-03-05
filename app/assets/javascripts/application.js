@@ -27,9 +27,6 @@ form = function() {
     $(this).addClass("vis");
   });
 }
-$(document).ready(form);
-$(document).on('page:load', form);
-
 
 var category;
 category = function() {
@@ -44,5 +41,5 @@ category = function() {
     $(this).addClass("vis");
   });
 }
-$(document).ready(category);
-$(document).on('page:load', category);
+$(document).ready(category, form);
+$(document).on('page:load', category, form);

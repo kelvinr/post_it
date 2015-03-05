@@ -1,6 +1,6 @@
 -if @comment.save
   $('#com').prepend("#{escape_javascript(render @comment)}")
-  $('#com .row:first-child').css('border', '3px solid #FFFEAD')
+  $('#com .row:first-child .vote').css('border-left', '4px solid #398581')
   $("#comment_body").val('')
   -if @comment.post.comments.first == @comment
     $("#first").removeClass('hide')

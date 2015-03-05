@@ -2,5 +2,5 @@
   =link_to(user_path(obj.creator)) do
     ="#{obj.creator.name} "
   | Posted
-  =display_time(obj.created_at)
+  =time_ago_in_words(obj.created_at)
   ago

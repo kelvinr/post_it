@@ -13,7 +13,7 @@
         
       =link_to pluralize("#{post.comments.size}", "comment"), post_path(post)
       
-      -if post.creator == current_user
+      -if logged_in? and post.creator == current_user || current_user.admin?
         =link_to " | Edit Post", edit_post_path(post)
 
 

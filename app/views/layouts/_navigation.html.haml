@@ -10,7 +10,7 @@
         Categories
         %span.caret
       %ul.dropdown-menu.scrollable-menu{role:'menu'}
-        -if logged_in?
+        -if logged_in? and current_user.admin?
           %li
             =link_to(new_category_path, remote: true, class: 'cat') do
               %i.glyphicon.glyphicon-plus

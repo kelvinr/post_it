@@ -8,8 +8,4 @@ module ApplicationHelper
   def fix_url(url)
     url.start_with?('http://') ? url : "http://#{url}"
   end
-
-  def display_time(time)
-    time_ago_in_words(time)
-  end
 end
