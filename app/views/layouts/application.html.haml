@@ -14,11 +14,12 @@
     =yield(:head)
 
   %body
-    =render 'layouts/navigation'
-
-    .container
+    .container-fluid
       .row
-        =render 'layouts/messages'
+        =render 'layouts/navigation'
+      =render 'layouts/messages'
+      .row
         =yield
 
-      %footer
+
+    %footer

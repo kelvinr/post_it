@@ -46,11 +46,11 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  private
-
   def login_user!(user)
     session[:user_id] = user.id
     flash[:success] = "You've logged in."
     redirect_to root_path
   end
+  private
+
 end

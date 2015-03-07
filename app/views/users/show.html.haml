@@ -8,6 +8,9 @@
       %h4
         %strong Timezone:
         =@user.time_zone
+      %h4
+        %strong Two factor auth:
+        =@user.two_factor_auth? ? 'Yes' : 'No'
 
     %h4
       =@user.name

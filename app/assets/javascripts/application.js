@@ -43,10 +43,15 @@ function category() {
 
 function forms () {
   $('.remote').click(function(event){
+    var form = $(this).next('.form');
     if ($(this).hasClass("vis")){
+      form.slideToggle();
       event.stopPropagation();
       event.preventDefault();
-      $(this).next(".form").slideToggle();
+    if (form.hasClass('log') && $('.new').css('display') == 'flex'){
+      $('.new').slideToggle();
+    } else if (form.hasClass('new') && $('.log').css('display') == 'flex'){
+      $('.log').slideToggle();}
     }
     $(this).addClass("vis");
   });

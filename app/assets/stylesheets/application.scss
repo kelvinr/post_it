@@ -16,16 +16,21 @@ hr {
    width: 150px;
    border: solid 1px #BCDBDB;
    box-shadow: 0 0 .5em .5em #FFFFFF inset;
+   display: none;
+   position: absolute;
 }
 
-p.dark_well {
-  display: none;
-  position: absolute;
+#title {
+  margin: 0 2em;
 }
 
 .form {
   position: absolute;
   z-index: 1;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  -webkit-justify-content: center;
 }
 
 #first, #none {
@@ -61,7 +66,6 @@ a {
 }
 
 .form-control {
- width: 75%;
  max-width: 75%;
  margin: auto;
 }
@@ -73,6 +77,7 @@ a {
 }
 
 #error_message {
+  text-align: center;
  li {
    list-style: none;}
 }
