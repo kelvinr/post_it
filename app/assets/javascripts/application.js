@@ -16,25 +16,19 @@
 //= require turbolinks
 //= require_tree .
 
-var form;
-form = function() {
-  $('.remote').click(function(event){
-    if ($(this).hasClass("vis")){
-      event.stopPropagation();
-      event.preventDefault();
-      $(this).next(".form").slideToggle();
-    }
-    $(this).addClass("vis");
-    });
-  $('.container-fluid').on('click', 'i', function(){
-    $('.dark_well').slideToggle();
-  });
-}
-$(document).ready(form);
-$(document).on('page:load', form);
+$(document).ready(function(){
+  category();
+  forms();
+  info();
+});
 
-var category;
-category = function() {
+$(document).on('page:load', function(){
+  category();
+  forms();
+  info();
+});
+
+function category() {
   $(".cat").on('click', function(event){
     if ($(this).hasClass("vis")){
       event.stopPropagation();
@@ -46,5 +40,20 @@ category = function() {
     $(this).addClass("vis");
   });
 }
-$(document).ready(category);
-$(document).on('page:load', category);
+
+function forms () {
+  $('.remote').click(function(event){
+    if ($(this).hasClass("vis")){
+      event.stopPropagation();
+      event.preventDefault();
+      $(this).next(".form").slideToggle();
+    }
+    $(this).addClass("vis");
+  });
+}
+
+function info() {
+  $('.container-fluid').on('click', 'i', function(){
+    $('.dark_well').slideToggle();
+  });
+}

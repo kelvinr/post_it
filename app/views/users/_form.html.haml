@@ -21,7 +21,7 @@
           =f.label :phone, "Phone Number<small>(numbers only)</small>".html_safe
           %i.glyphicon.glyphicon-question-sign#auth
             %p.dark_well We will use this to keep your account and info secure.
-          =f.telephone_field :phone, maxlength: 9, class: 'form-control'
+          =f.telephone_field :phone, min: 10, maxlength: 10, class: 'form-control'
 
         .form-group
           =f.label :time_zone
