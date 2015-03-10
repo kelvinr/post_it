@@ -1,2 +1,8 @@
 =render 'shared/content_title', title: 'Posts'
 =render @posts
+
+-@pages.times do |num|
+  -if (params[:offset].nil? && num == 0) || params[:offset].to_s == (num * Post::PER_PAGE).to_s
+    =" | Page #{num + 1}"
+  -else
+    =link_to " | Page #{num + 1}", posts_path(offset: num * Post::PER_PAGE)

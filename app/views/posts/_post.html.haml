@@ -10,11 +10,8 @@
       %h5= post.description
       %p
         =render 'shared/user_link', obj: post
-        
+
       =link_to pluralize("#{post.comments.size}", "comment"), post_path(post)
-      
+
       -if logged_in? and post.creator == current_user || current_user.admin?
         =link_to " | Edit Post", edit_post_path(post)
-
-
-

@@ -20,8 +20,3 @@
 .container
   .col-12#com
     =render @post.comments.sort_by{|votes| votes.vote_count}.reverse
-
-
-
-
-

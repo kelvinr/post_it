@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @posts = Post.all.sort_by{|votes| votes.vote_count}.reverse
+    @posts = Post.limit(Post::PER_PAGE).offset(params[:offset])
+    @pages = (Post.all.size.to_f / Post::PER_PAGE).ceil
   end
 
   def show
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
     vote = Vote.new(voteable: @post, creator: current_user, vote: params[:vote])
     @post.check_vote(current_user).nil? ? vote.save : @post.change_vote(params[:vote])
     @post.counter(params[:vote]) if vote.persisted?
-    
+
     respond_to do |format|
       format.html {redirect_to :back}
       format.js
